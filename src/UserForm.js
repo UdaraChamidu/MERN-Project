@@ -1,0 +1,99 @@
+import { Grid, Typography, Input, Button } from "@mui/material";  /* import MUI components*/
+
+const UserForm = () => {
+  return(
+    <Grid                /* Grid system (MUI component) (like a html div*/
+        container        /* grid name = container*/
+        spacing={2}      /*  spacing = padding*/
+        sx={{            /* css style*/
+            backgroundColor:"#ffffff",
+            marginBottom:"30px",
+            display:"block",
+            }}>   
+        <Grid 
+            item            /* grid name = item*/
+            xs={12}         /* xs = extra small screen size (use the full width for the grid at that time) */
+        >
+            <Typography     /* it is like a paragraph. here it is used as h1 tag.*/
+                component={"h1"}
+                sx = {{
+                    color: "#000000",
+                }}
+            >Users Form</Typography>
+        </Grid>
+
+        <Grid item xs={12} sm={6} sx={{ display:"flex"}}>     {/* different screen sizes */}
+            <Typography
+                component={"label"}
+                htmlFor="id"        /* to give html for label */
+                sx = {{
+                    color: "#000000",
+                    marginRight:"10px",
+                    fontSize:"15px",
+                    width:"50px",
+                    display:"block"    /* not in a same row */
+                }}
+            >ID
+            </Typography>
+            <Input              /* it is like an input tag in html */
+                id="id"
+                type="number"
+                name="id"
+                placeholder="Enter your ID"
+                sx={{
+                    width:"200px",
+                    marginBottom:"10px"
+                }}
+                value={""}                    /* to set the value of the input field (props will add)*/
+                onChange={(e) => {}}          /* what happen when i type in input field, it is a function, parameter = e, no return */
+            />      
+        </Grid>
+
+        <Grid item xs={12} sm={6} sx={{ display:"flex"}}>     {/* different screen sizes */}
+            <Typography
+                component={"label"}
+                htmlFor="id"        /* to give html for label */
+                sx = {{
+                    color: "#000000",
+                    marginRight:"10px",
+                    fontSize:"15px",
+                    width:"50px",
+                    display:"block"    /* not in a same row */
+                }}
+            >Name
+            </Typography>
+            <Input              /* it is like an input tag in html */
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Enter your Name"
+                sx={{
+                    width:"200px",
+                    marginBottom:"10px"
+                }}
+                value={""}                    /* to set the value of the input field (props will add)*/
+                onChange={(e) => {}}          /* what happen when i type in input field, it is a function, parameter = e, no return */
+            />      
+        </Grid>
+
+        <Button
+            sx={{
+                margin:"auto",
+                marginBottom:"20px",
+                backgroundColor:"#0f160fff",
+                color:"#ffffff",
+                marginTop:"10px",
+                marginLeft:"20px",
+                '&:hover': {                        /* /* when mouse comes on the button some changeshappen */
+                    opacity: "0.7",                 /* transparency */
+                    backgroundColor:"#0f160fff",
+                }
+            }}      
+        >
+            Submit
+        </Button>
+    </Grid>
+  );
+};
+
+export default UserForm;
