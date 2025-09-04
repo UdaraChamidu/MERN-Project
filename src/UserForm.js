@@ -1,11 +1,16 @@
-import { Grid, Typography, Input, Button } from "@mui/material";  /* import MUI components*/
+import { Grid, Typography, Input, Button } from "@mui/material";  /* import MUI components*/ 
+import { useState } from "react";   /* to create state variables */
+import React from "react";
 
 const UserForm = () => {
-  return(
-    <Grid                /* Grid system (MUI component) (like a html div*/
-        container        /* grid name = container*/
-        spacing={2}      /*  spacing = padding*/
-        sx={{            /* css style*/
+    const [id, setId] = useState(0);           /* to store the id value, setId function used to change the value of id */
+    const [name, setName] = useState("");       /* to store the name value */
+
+    return(
+        <Grid                /* Grid system (MUI component) (like a html div*/
+            container        /* grid name = container*/
+        spacing={2}          /*  spacing = padding*/
+        sx={{                /* css style*/
             backgroundColor:"#ffffff",
             marginBottom:"30px",
             display:"block",
@@ -44,8 +49,8 @@ const UserForm = () => {
                     width:"200px",
                     marginBottom:"10px"
                 }}
-                value={""}                    /* to set the value of the input field (props will add)*/
-                onChange={(e) => {}}          /* what happen when i type in input field, it is a function, parameter = e, no return */
+                value={id}                    /* to set the value of the input field (props will add)*/
+                onChange={(e) => setId(e.target.value)}          /* what happen when i type in input field, it is a function, parameter = e, no return, it take the user typed value and sent to setId function and update the id */
             />      
         </Grid>
 
@@ -71,8 +76,8 @@ const UserForm = () => {
                     width:"200px",
                     marginBottom:"10px"
                 }}
-                value={""}                    /* to set the value of the input field (props will add)*/
-                onChange={(e) => {}}          /* what happen when i type in input field, it is a function, parameter = e, no return */
+                value={name}                    /* to set the value of the input field (props will add)*/
+                onChange={(e) => setName(e.target.value)}          /* what happen when i type in input field, it is a function, parameter = e, no return */
             />      
         </Grid>
 
