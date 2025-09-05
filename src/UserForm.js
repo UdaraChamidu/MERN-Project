@@ -3,18 +3,19 @@ import { useState } from "react";   /* to create state variables */
 import React from "react";
 
 const UserForm = () => {
-    const [id, setId] = useState(0);           /* to store the id value, setId function used to change the value of id */
+    const [id, setId] = useState();           /* to store the id value, setId function used to change the value of id */
     const [name, setName] = useState("");       /* to store the name value */
 
     return(
         <Grid                /* Grid system (MUI component) (like a html div*/
             container        /* grid name = container*/
-        spacing={2}          /*  spacing = padding*/
-        sx={{                /* css style*/
-            backgroundColor:"#ffffff",
-            marginBottom:"30px",
-            display:"block",
-            }}>   
+            spacing={2}          /*  spacing = padding*/
+            sx={{                /* css style*/
+                backgroundColor:"#ffffff",
+                marginBottom:"30px",
+                display:"block",
+            }}
+        >   
         <Grid 
             item            /* grid name = item*/
             xs={12}         /* xs = extra small screen size (use the full width for the grid at that time) */
@@ -24,7 +25,8 @@ const UserForm = () => {
                 sx = {{
                     color: "#000000",
                 }}
-            >Users Form</Typography>
+            >Users Form
+            </Typography>
         </Grid>
 
         <Grid item xs={12} sm={6} sx={{ display:"flex"}}>     {/* different screen sizes */}

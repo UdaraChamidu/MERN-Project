@@ -17,10 +17,10 @@ const UserTable = ({rows}) => {    /*  insted of typing type different props nam
 
                 <TableBody>     {/* if you use (props) in the above function, you should use props.rows here */}
                     {
-                        rows.length >0 ? rows.map(row => (
-                            <TableRow key={row.id} sx = {{'&:last-child td, &:last-child th' : {border: 0}}}>             {/* key is used to identify each row uniquely, and remove the border of the last row */}
-                                <TableCell component ='th' scope = "row" >  {row.id}  </TableCell>          {/* th means table header */}
-                                <TableCell component ='th' scope = "row" >  {row.name}  </TableCell>          {/* th means table header */}
+                        rows.length > 0 ? rows.map(row => (                                                         /* only data present, below things will work*/
+                            <TableRow key={row.id} sx = {{'&:last-child td, &:last-child th' : {border: 0}}}>      {/* key is used to identify each row uniquely, and remove the border of the last row */}
+                                <TableCell component ='th' scope = "row" >  {row.id}  </TableCell>                 {/* th means table header */}
+                                <TableCell component ='th' scope = "row" >  {row.name}  </TableCell>               {/* th means table header */}
                                 <TableCell> 
                                     <Button
                                         sx = {{ margin: '0px, 10px'}}
@@ -45,7 +45,6 @@ const UserTable = ({rows}) => {    /*  insted of typing type different props nam
                     }
                 </TableBody>
             </Table>
-
         </TableContainer>
     );
 };
