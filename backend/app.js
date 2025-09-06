@@ -6,7 +6,7 @@ const cors = require('cors');
 const controller = require('./controller');  /* import controller.js file */
 
 
-/* middleware */
+/* middleware part */
 app.use(cors());
 
 app.use(
@@ -19,7 +19,8 @@ app.use(express.json());   /* to accept json data , convert data to json format*
 
 
 
-/* create rest api routes */
+
+/* create rest api routes part (using express)*/
 app.get('/users', (req, res) => {   /*url, request and response */
     controller.getUsers((users) => {   /* call the controller function */
         res.send(users);   /* send the response to client */
