@@ -13,7 +13,8 @@ const users = require("./model"); /* import the dataset from model.js file*/
 
 const getUsers = (req, res, next) => {
   /* next  for do the next thing*/
-  User.find() /* select user from the database*/
+  users
+    .find() /* select user from the database*/
     .then((response) => {
       res.json({ response }) /* return the response as json format*/;
     })
@@ -26,7 +27,7 @@ const getUsers = (req, res, next) => {
 /* get data using a promis*/
 
 const addUser = (req, res, next) => {
-  const user = new User({
+  const user = new users({
     id: req.body.id,
     name: req.body.name,
   });
@@ -46,7 +47,7 @@ const updataUser = (req, res, next) => {
   const id = req.body.id;
   const name = req.body.name;
   /* const {id, name} = req.body -> using object re structuring*/
-  user
+  users
     .updateOne({ id: id }, { $set: { name: name } })
     .then((response) => {
       res.json({ response }) /* return the response as json format*/;
@@ -60,7 +61,8 @@ const updataUser = (req, res, next) => {
 
 const deleteUser = (req, res, next) => {
   const id = req.body.id;
-  User.deleteOne({ id: id })
+  users
+    .deleteOne({ id: id })
     .then((response) => {
       res.json({ response }) /* return the response as json format*/;
     })
