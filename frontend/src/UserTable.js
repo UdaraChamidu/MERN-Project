@@ -1,6 +1,6 @@
 import { Table, TableCell, TableContainer, TableHead, Paper, Button, TableRow, TableBody } from "@mui/material"; 
 
-const UserTable = ({rows, selectedUser}) => {    /*  insted of typing type different props names like ({rows, ..., ..}), we can type (props) */
+const UserTable = ({rows, selectedUser, deleteUser}) => {    /*  insted of typing type different props names like ({rows, ..., ..}), we can type (props) */
     return(
         <TableContainer
             component = {Paper}    /* this can be managed easily in different devices */
@@ -31,7 +31,7 @@ const UserTable = ({rows, selectedUser}) => {    /*  insted of typing type diffe
 
                                     <Button
                                         sx = {{ margin: '0px, 10px'}}
-                                        onClick ={() =>{}}
+                                        onClick ={() => deleteUser({id: row.id})}   /* when delete button is clicked, the user id will be sent to Users.js */
                                     >
                                     Delete 
                                     </Button>

@@ -66,6 +66,16 @@ const Users = () => {
       });
   };
 
+  const deleteUser = (data) => {
+    Axios.post("http://localhost:5000/api/deleteuser", data)
+      .then(() => {
+        getUsers(); // refresh users list
+      })
+      .catch((error) => {
+        console.error("Axios Error : ", error);
+      });
+  };
+
   return (
     <>
       {" "}
@@ -83,6 +93,10 @@ const Users = () => {
           setSelectedUser(data);
           setIsEdit(true);
         }}
+        deleteUser={(data) =>
+          window.confirm("Are you sure you want to delete this user?") &&
+          deleteUser(data)
+        }
       />{" "}
       {/* users data is sent to UserTable using props, (rows is just a name). now i can access 'rows' in UserTable file */}
     </>
