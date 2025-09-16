@@ -4,13 +4,29 @@ import {
   Input,
   Button,
 } from "@mui/material"; /* import MUI components*/
-import { useState } from "react"; /* to create state variables */
+import { use, useState } from "react"; /* to create state variables */
 import React from "react";
+import { useEffect } from "react"; // to use useEffect hook
 
-const UserForm = ({ addUser }) => {
+const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
   const [id, setId] =
     useState(); /* to store the id value, setId function used to change the value of id */
   const [name, setName] = useState(""); /* to store the name value */
+
+  useEffect(() => {
+    if (!submitted) {
+      // if submitted is false, then clear the form
+      setId("");
+      setName("");
+    }
+  }, [submitted]);
+
+  useEffect(() => {
+    if (data?.id && data.id !== 0) {
+      setId(data.id);
+      setName(data.name);
+    }
+  }, [data]);
 
   return (
     <Grid /* Grid system (MUI component) (like a html div*/
@@ -117,10 +133,10 @@ const UserForm = ({ addUser }) => {
           },
         }}
         onClick={() =>
-          addUser({ id, name })
+          isEdit ? updateUser({ id, name }) : addUser({ id, name })
         } /* when click the button, call the addUser function (which is received as a prop) and send the id and name as an object */
       >
-        Add User
+        {isEdit ? "Update User" : "Add User"}
       </Button>
     </Grid>
   );

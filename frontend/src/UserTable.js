@@ -1,6 +1,6 @@
 import { Table, TableCell, TableContainer, TableHead, Paper, Button, TableRow, TableBody } from "@mui/material"; 
 
-const UserTable = ({rows}) => {    /*  insted of typing type different props names like ({rows, ..., ..}), we can type (props) */
+const UserTable = ({rows, selectedUser}) => {    /*  insted of typing type different props names like ({rows, ..., ..}), we can type (props) */
     return(
         <TableContainer
             component = {Paper}    /* this can be managed easily in different devices */
@@ -24,7 +24,7 @@ const UserTable = ({rows}) => {    /*  insted of typing type different props nam
                                 <TableCell> 
                                     <Button
                                         sx = {{ margin: '0px, 10px'}}
-                                        onClick ={() =>{}}
+                                        onClick ={() =>{selectedUser({id: row.id, name: row.name})}}   /* when update button is clicked, the selected user details will be sent to Users.js */
                                     >
                                     Update 
                                     </Button> 
