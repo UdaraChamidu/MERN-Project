@@ -53,6 +53,7 @@ app.post("/deleteuser", (req, res) => {
 });
 /* this will show user by id: http://localhost:5000/user?id=2 */
 
+
 /*export to access from server.js*/
 /* now this is express application */
 module.exports = app;
