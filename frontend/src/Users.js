@@ -25,7 +25,7 @@ const Users = () => {
 
   // function to fill users (use calling axios)
   const getUsers = () => {
-    Axios.get("http://localhost:5000/api/users") // get request to backend (to get all users) (this return a promis)
+    Axios.get(process.env.REACT_APP_ENDPOINT + "/api/users") // get request to backend (to get all users) (this return a promis)
       .then((response) => {
         // response=output from API (array)
         // console.log(response.data.response); // print data directly
@@ -39,7 +39,7 @@ const Users = () => {
   const addUser = (data) => {
     setSubmitted(true);
     const payload = { id: data.id, name: data.name }; // create payload
-    Axios.post("http://localhost:5000/api/createuser", payload) // post request to backend (to add a user)
+    Axios.post(process.env.REACT_APP_ENDPOINT +"api/createuser", payload) // post request to backend (to add a user)
 
       .then(() => {
         getUsers(); // refresh users list
@@ -54,7 +54,7 @@ const Users = () => {
   const updateUser = (data) => {
     setSubmitted(true);
     const payload = { id: data.id, name: data.name };
-    Axios.post("http://localhost:5000/api/updateuser", payload)
+    Axios.post(process.env.REACT_APP_ENDPOINT + "/api/updateuser", payload)
       .then(() => {
         getUsers(); // refresh users list
         setSubmitted(false); // to show success message in UserForm
@@ -67,7 +67,7 @@ const Users = () => {
   };
 
   const deleteUser = (data) => {
-    Axios.post("http://localhost:5000/api/deleteuser", data)
+    Axios.post(process.env.REACT_APP_ENDPOINT + "/api/deleteuser", data)
       .then(() => {
         getUsers(); // refresh users list
       })
