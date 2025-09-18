@@ -39,7 +39,7 @@ const Users = () => {
   const addUser = (data) => {
     setSubmitted(true);
     const payload = { id: data.id, name: data.name }; // create payload
-    Axios.post(process.env.REACT_APP_ENDPOINT +"api/createuser", payload) // post request to backend (to add a user)
+    Axios.post(process.env.REACT_APP_ENDPOINT + "/api/createuser", payload) // post request to backend (to add a user)
 
       .then(() => {
         getUsers(); // refresh users list
